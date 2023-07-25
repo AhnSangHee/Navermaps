@@ -14,11 +14,19 @@ let package = Package(
     dependencies: [],
     targets: [
       .binaryTarget(
+        name: "NMapsGeometry",
+        path: "./Frameworks/NMapsGeometry.xcframework"
+      ),
+      .binaryTarget(
         name: "NMapsMap",
         path: "./Frameworks/NMapsMap.xcframework"
       ),
       .target(
         name: "NaverMaps-SPM",
-        dependencies: ["NMapsMap"])
+        dependencies: [
+          "NMapsGeometry",
+          "NMapsMap"
+        ]
+      )
     ]
 )
